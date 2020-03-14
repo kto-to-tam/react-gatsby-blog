@@ -6,14 +6,12 @@ import Post from "../components/Post"
 
 
 const IndexPage = () => (
-  <Layout>
+  <Layout headline="Posts list">
     <SEO title="Home" />
-    <h1>Hello Page</h1>
     <StaticQuery query={indexQuery} render={data => {
       return (
         <div>
-          {
-            data.allMarkdownRemark.edges.map(({node}) => (
+          { data.allMarkdownRemark.edges.map(({node}) => (
               <Post 
                 key={node.id}
                 title={node.frontmatter.title}
@@ -21,6 +19,7 @@ const IndexPage = () => (
                 date={node.frontmatter.date}
                 path={node.frontmatter.path}
                 body={node.excerpt}
+                fluid={node.frontmatter.image.childImageSharp.fluid}
               />
             ))
           }
@@ -33,7 +32,7 @@ const IndexPage = () => (
 
 const indexQuery = graphql`
   query {
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMarkdownRemark {
       edges {
         node {
           id
@@ -42,6 +41,13 @@ const indexQuery = graphql`
             date(formatString: "MMM Do YYYY")
             author
             path
+            image {
+              childImageSharp{
+                fluid(maxWidth: 600) {
+                  ...GatsbyImageSharpFluid
+                }
+              } 
+            }
           }
           excerpt
         }

@@ -2,10 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
 import { Card, CardTitle, CardText, CardSubtitle, CardBody } from 'reactstrap';
+import Img from 'gatsby-image';
 
-const Post = ({ title, date, author, body, path }) => {
+const Post = ({ title, date, author, body, path, fluid }) => {
   return (
     <Card>
+      <Link to={path}>
+        <Img className="card-image-top" fluid={fluid} />
+      </Link>
       <CardBody>
         <CardTitle>
           <Link to={path}>
@@ -31,6 +35,7 @@ Post.propTypes = {
   author: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
   path: PropTypes.string.isRequired,
+  fluid: PropTypes.any
 };
 
 export default Post;

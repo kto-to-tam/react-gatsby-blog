@@ -1,6 +1,11 @@
 .card {
   margin-bottom: 30px;
 }
+
+.card:last-child {
+  margin-bottom: 0;
+}
+
 ul.post-tags {
   padding: 0;
   display: inline-flex;
