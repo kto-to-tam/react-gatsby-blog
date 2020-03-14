@@ -4,6 +4,11 @@ date: 2020-01-05 10:11:12
 author: 'Alice'
 path: '/Third-post'
 image: '../../images/post-image.jpg'
+tags:
+- manager
+- Web-Design
+- tutorial
+- work
 ---
  
 1.  **`/node_modules`**: This directory contains all of the modules of code that your project depends on (npm packages) are automatically installed.
