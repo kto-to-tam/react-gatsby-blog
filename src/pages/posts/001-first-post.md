@@ -1,7 +1,7 @@
 ---
 title: "First post introdaction"
 date: 2017-05-03 15:00:00
-author: "Mike"
+author: "Jane Doe"
 image: "../../images/post-image.jpg"
 tags:
   - code

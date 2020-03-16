@@ -1,7 +1,7 @@
 ---
 title: "Third post introdaction"
 date: 2020-01-05 10:11:12
-author: "Alice"
+author: "Jane Doe"
 image: "../../images/post-image.jpg"
 tags:
   - manager

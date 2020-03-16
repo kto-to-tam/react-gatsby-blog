@@ -9,7 +9,7 @@ import TitleContainer from "./TitleContainer"
 
 import "../styles/index.scss"
 
-const Layout = ({ children, headline }) => {
+const Layout = ({ children, headline, postAuthor, authorImage }) => {
   return (
     <>
       <Header />
@@ -18,7 +18,7 @@ const Layout = ({ children, headline }) => {
         <Row>
           <Col md={8}>{children}</Col>
           <Col md={4}>
-            <Sidebar />
+            <Sidebar author={postAuthor} authorFluid={authorImage}/>
           </Col>
         </Row>
       </div>

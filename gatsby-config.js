@@ -37,6 +37,12 @@ module.exports = {
     "gatsby-plugin-catch-links",
     "gatsby-transformer-remark",
     "gatsby-plugin-sass",
+    {
+      resolve: 'gatsby-plugin-load-script',
+      options: {
+        src: 'https://kit.fontawesome.com/61f5ad1549.js',
+      },
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
