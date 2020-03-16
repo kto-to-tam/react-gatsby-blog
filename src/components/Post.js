@@ -12,15 +12,15 @@ import {
   Badge,
 } from "reactstrap"
 
-const Post = ({ title, date, author, body, path, fluid, tags }) => {
+const Post = ({ title, date, author, body, slug, fluid, tags }) => {
   return (
     <Card>
-      <Link to={path}>
+      <Link to={slug}>
         <Img className="card-image-top" fluid={fluid} />
       </Link>
       <CardBody>
         <CardTitle>
-          <Link to={path}>{title}</Link>
+          <Link to={slug}>{title}</Link>
         </CardTitle>
         <CardSubtitle>
           <span className="text-info">{date}</span> by{" "}
@@ -38,7 +38,7 @@ const Post = ({ title, date, author, body, path, fluid, tags }) => {
             </li>
           ))}
         </ul>
-        <Link to={path} className="btn btn-outline-primary float-right">
+        <Link to={slug} className="btn btn-outline-primary float-right">
           Read more
         </Link>
       </CardBody>
@@ -51,7 +51,7 @@ Post.propTypes = {
   date: PropTypes.string.isRequired,
   author: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
-  path: PropTypes.string.isRequired,
+  slug: PropTypes.string.isRequired,
   fluid: PropTypes.any,
   tags: PropTypes.array.isRequired,
 }
