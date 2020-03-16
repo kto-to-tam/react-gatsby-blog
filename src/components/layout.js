@@ -1,6 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { Col, Row } from 'reactstrap'
+import { Col, Row } from "reactstrap"
 
 import Header from "./header"
 import Sidebar from "./Sidebar"
@@ -9,17 +9,14 @@ import TitleContainer from "./TitleContainer"
 
 import "../styles/index.scss"
 
-
 const Layout = ({ children, headline }) => {
   return (
     <>
       <Header />
       <div className="container" id="content">
-        <TitleContainer headline={headline}/>
+        <TitleContainer headline={headline} />
         <Row>
-          <Col md={8}>
-            {children}
-          </Col>
+          <Col md={8}>{children}</Col>
           <Col md={4}>
             <Sidebar />
           </Col>

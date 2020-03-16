@@ -1,7 +1,15 @@
-import React from 'react'
-import { graphql, StaticQuery, Link } from 'gatsby'
-import { CardBody, CardTitle, Card, Form, FormGroup, Input, Button } from 'reactstrap'
-import Img from 'gatsby-image'
+import React from "react"
+import { graphql, StaticQuery, Link } from "gatsby"
+import {
+  CardBody,
+  CardTitle,
+  Card,
+  Form,
+  FormGroup,
+  Input,
+  Button,
+} from "reactstrap"
+import Img from "gatsby-image"
 
 const Sidebar = () => {
   return (
@@ -19,11 +27,9 @@ const Sidebar = () => {
                 placeholder="Your email address..."
               />
             </FormGroup>
-            <Button 
-              color="success"
-              className="text-uppercase" 
-              type="submit"
-            >Subscribe</Button>
+            <Button color="success" className="text-uppercase" type="submit">
+              Subscribe
+            </Button>
           </Form>
         </CardBody>
       </Card>
@@ -34,10 +40,10 @@ const Sidebar = () => {
             Advertisement
           </CardTitle>
         </CardBody>
-        <img 
-          className="img-fluid" 
-          src="https://via.placeholder.com/320x200" 
-          alt="Advert" 
+        <img
+          className="img-fluid"
+          src="https://via.placeholder.com/320x200"
+          alt="Advert"
         />
       </Card>
 
@@ -46,27 +52,30 @@ const Sidebar = () => {
           <CardTitle className="text-center text-uppercase mb-3">
             Recent Posts
           </CardTitle>
-          <StaticQuery query={sidebarQuery} render={data => (
-            <div>
-              { data.allMarkdownRemark.edges.map(({node}) => (
-                <Card key={node.id}>
-                  <Link to={node.frontmatter.path}>
-                    <Img
-                      className="card-image-top"
-                      fluid={node.frontmatter.image.childImageSharp.fluid}
-                    />
-                  </Link>
-                  <CardBody>
-                    <CardTitle>
-                      <Link to={node.frontmatter.path}>
-                        {node.frontmatter.title}
-                      </Link>
-                    </CardTitle>
-                  </CardBody>
-                </Card>
-              ))}
-            </div>
-          )}/>
+          <StaticQuery
+            query={sidebarQuery}
+            render={data => (
+              <div>
+                {data.allMarkdownRemark.edges.map(({ node }) => (
+                  <Card key={node.id}>
+                    <Link to={node.frontmatter.path}>
+                      <Img
+                        className="card-image-top"
+                        fluid={node.frontmatter.image.childImageSharp.fluid}
+                      />
+                    </Link>
+                    <CardBody>
+                      <CardTitle>
+                        <Link to={node.frontmatter.path}>
+                          {node.frontmatter.title}
+                        </Link>
+                      </CardTitle>
+                    </CardBody>
+                  </Card>
+                ))}
+              </div>
+            )}
+          />
         </CardBody>
       </Card>
     </div>
@@ -78,7 +87,7 @@ const sidebarQuery = graphql`
     allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC }
       limit: 3
-      ) {
+    ) {
       edges {
         node {
           id
@@ -86,11 +95,11 @@ const sidebarQuery = graphql`
             title
             path
             image {
-              childImageSharp{
+              childImageSharp {
                 fluid(maxWidth: 300) {
                   ...GatsbyImageSharpFluid
                 }
-              } 
+              }
             }
           }
         }

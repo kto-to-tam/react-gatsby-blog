@@ -4,15 +4,16 @@ import SEO from "../components/seo"
 import { graphql, StaticQuery } from "gatsby"
 import Post from "../components/Post"
 
-
 const IndexPage = () => (
   <Layout headline="Posts list">
     <SEO title="Home" />
-    <StaticQuery query={indexQuery} render={data => {
-      return (
-        <div>
-          { data.allMarkdownRemark.edges.map(({node}) => (
-              <Post 
+    <StaticQuery
+      query={indexQuery}
+      render={data => {
+        return (
+          <div>
+            {data.allMarkdownRemark.edges.map(({ node }) => (
+              <Post
                 key={node.id}
                 title={node.frontmatter.title}
                 author={node.frontmatter.author}
@@ -22,14 +23,13 @@ const IndexPage = () => (
                 fluid={node.frontmatter.image.childImageSharp.fluid}
                 tags={node.frontmatter.tags}
               />
-            ))
-          }
-        </div>
-      )
-    }}/>
+            ))}
+          </div>
+        )
+      }}
+    />
   </Layout>
 )
-
 
 const indexQuery = graphql`
   query {
@@ -44,11 +44,11 @@ const indexQuery = graphql`
             path
             tags
             image {
-              childImageSharp{
+              childImageSharp {
                 fluid(maxWidth: 600) {
                   ...GatsbyImageSharpFluid
                 }
-              } 
+              }
             }
           }
           excerpt
