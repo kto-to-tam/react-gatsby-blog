@@ -18,7 +18,7 @@ const Layout = ({ children, headline, postAuthor, authorImage }) => {
         <Row>
           <Col md={8}>{children}</Col>
           <Col md={4}>
-            <Sidebar author={postAuthor} authorFluid={authorImage}/>
+            <Sidebar author={postAuthor} authorFluid={authorImage} />
           </Col>
         </Row>
       </div>

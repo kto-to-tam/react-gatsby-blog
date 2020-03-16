@@ -7,8 +7,9 @@ import { graphql, Link } from "gatsby"
 import Img from "gatsby-image"
 import { Card, CardBody, CardSubtitle, Badge } from "reactstrap"
 import authors from "../util/authors"
+import Share from "../components/Share"
 
-const SinglePost = ({ data }) => {
+const SinglePost = ({ data, pageContext }) => {
   const post = data.markdownRemark.frontmatter
   const author = authors.find(author => author.name === post.author)
 
@@ -45,6 +46,7 @@ const SinglePost = ({ data }) => {
           </ul>
         </CardBody>
       </Card>
+      <Share post={post} pageContext={pageContext} data={data} />
     </Layout>
   )
 }

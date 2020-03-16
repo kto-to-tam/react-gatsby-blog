@@ -38,9 +38,9 @@ module.exports = {
     "gatsby-transformer-remark",
     "gatsby-plugin-sass",
     {
-      resolve: 'gatsby-plugin-load-script',
+      resolve: "gatsby-plugin-load-script",
       options: {
-        src: 'https://kit.fontawesome.com/61f5ad1549.js',
+        src: "https://kit.fontawesome.com/61f5ad1549.js",
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
