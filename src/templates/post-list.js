@@ -1,7 +1,7 @@
-import React from 'react'
-import Layout from '../components/layout'
-import { graphql } from 'gatsby'
-import Post from '../components/Post'
+import React from "react"
+import Layout from "../components/layout"
+import { graphql } from "gatsby"
+import Post from "../components/Post"
 
 const PostList = ({ data, pageContext }) => {
   const posts = data.allMarkdownRemark.edges
@@ -9,8 +9,8 @@ const PostList = ({ data, pageContext }) => {
 
   return (
     <Layout headline={`Page ${currentPage}`}>
-      { posts.map(({ node }) => (
-        <Post 
+      {posts.map(({ node }) => (
+        <Post
           key={node.id}
           slug={node.fields.slug}
           title={node.frontmatter.title}

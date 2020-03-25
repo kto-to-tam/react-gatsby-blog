@@ -90,15 +90,15 @@ exports.createPages = ({ actions, graphql }) => {
         path: `/tag/${slugify(tag)}`,
         component: templates.tagPosts,
         context: {
-          tag, 
-        }
+          tag,
+        },
       })
-    });
+    })
 
     // create pagination pages
     const postsPerPage = 2
     const numberOfPages = Math.ceil(posts.length / postsPerPage)
-    
+
     Array.from({ length: numberOfPages }).forEach((_, index) => {
       const isFirstPage = index === 0
       const currentPage = index + 1
@@ -111,10 +111,9 @@ exports.createPages = ({ actions, graphql }) => {
         context: {
           limit: postsPerPage,
           skip: index * postsPerPage,
-          currentPage
-        }
+          currentPage,
+        },
       })
-
     })
   })
 }

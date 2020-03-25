@@ -1,20 +1,22 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { graphql } from 'gatsby'
-import SEO from '../components/seo'
-import Layout from '../components/layout'
-import Post from '../components/Post'
+import React from "react"
+import PropTypes from "prop-types"
+import { graphql } from "gatsby"
+import SEO from "../components/seo"
+import Layout from "../components/layout"
+import Post from "../components/Post"
 
 const tagPosts = ({ data, pageContext }) => {
-  const { tag } = pageContext 
+  const { tag } = pageContext
   const { totalCount } = data.allMarkdownRemark
-  const pageHeader = `${totalCount} post${totalCount === 1 ? '' : 's'} tagged with "${tag}"` 
+  const pageHeader = `${totalCount} post${
+    totalCount === 1 ? "" : "s"
+  } tagged with "${tag}"`
 
   return (
     <Layout headline={pageHeader}>
-      <SEO title={pageHeader}/>
-      {data.allMarkdownRemark.edges.map(({node}) => (
-        <Post 
+      <SEO title={pageHeader} />
+      {data.allMarkdownRemark.edges.map(({ node }) => (
+        <Post
           key={node.id}
           slug={node.fields.slug}
           title={node.frontmatter.title}
@@ -65,6 +67,6 @@ export const tagQuery = graphql`
       }
     }
   }
-` 
+`
 
 export default tagPosts
